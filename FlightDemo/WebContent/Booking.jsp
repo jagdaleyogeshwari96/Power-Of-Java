@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
- pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 
- <head>
+  <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,94 +50,102 @@ li a:hover {
 
         </style>
  </head>
-
 <script> 
 function validate()
 { 
-     var fullname = document.form.fullname.value;
-     var email = document.form.email.value;
-     var username = document.form.username.value; 
-     var password = document.form.password.value;
- //    var conpassword= document.form.conpassword.value;
+     var flightcode = document.form.flightcode.value;
+     var passengername = document.form.passengernamel.value;
+     var source = document.form.source.value; 
+     var destination = document.form.destination.value;
+ var departuredate= document.form.departuredate.value;
+ var payment= document.form.payment.value;
      
-     if (fullname==null || fullname=="")
+     if (flightcode==null || flightcode=="")
      { 
-     alert("Full Name can't be blank"); 
+     alert("Flight code can't be change"); 
      return false; 
      }
-     else if (email==null || email=="")
+     else if (passengername==null || passengername=="")
      { 
-     alert("Email can't be blank"); 
+     alert("passengername can't be blank"); 
      return false; 
      }
-     else if (username==null || username=="")
+     else if (source==null || source=="")
      { 
-     alert("Username can't be blank"); 
+     alert("source can't be blank"); 
      return false; 
      }
-     else if(password.length<6)
+     else if(destination==null || destination=="")
      { 
-     alert("Password must be at least 6 characters long."); 
+     alert("destination can't be blank"); 
      return false; 
      } 
-    
- }
+     else if (departuredate==null || departuredate=="")
+     { 
+     alert("Please mention a date"); 
+     return false; 
+     } 
+     else if (payment==null || payment=="")
+     { 
+     alert("enter valid amount"); 
+     return false; 
+ } 
 </script> 
-
- 
-
-
-
 </head>
 <body>
 <center><h2> Welcome To Flight Booking  </h2></center>
-
-
 <ul>
 				<li><a href="home.jsp">Home</a></li>
 				<li><a href="Login.jsp">Login</a></li>
 				<li><a href="Register.jsp">Registration</a></li>
 				<li><a href="Flight1.jsp">All Flights</a></li>
 				<li><a href="Booking.jsp">Book Ticket</a></li>
-				<li><a href="About.jsp">Booked Ticket</a></li>
-				<li><a href="Contact.jsp">Cancel Ticket</a></li>
+				<li><a href="About.jsp">Booked Flights</a></li>
+				<li><a href="Contact.jsp">Cancel Flight</a></li>
 			</ul>
-			
-			
-			<center><h2> User Registration</h2></center>
-			
 
-    <form name="form" action="RegisterServlet" method="post" onsubmit="return validate()">
+
+<center><h2> Book Ticket</h2></center>
+
+    <form name="form" action="BookingServlet" method="post" onsubmit="return validate()">
         <table align="center">
+        
+        
          <tr>
-         <td>Full Name</td>
-         <td><input type="text" name="fullname" /></td>
+         <td>Flight Code</td>
+         <td><input type="text" name="flightcode" /></td>
          </tr>
          <tr>
-         <td>Email</td>
-         <td><input type="text" name="email" /></td>
+         <td>Passenger Name</td>
+         <td><input type="text" name="passengername" /></td>
          </tr>
          <tr>
-         <td>UserName</td>
-         <td><input type="text" name="username" /></td>
+         <td>Source</td>
+         <td><input type="text" name="source" /></td>
          </tr>
          <tr>
-         <td>Password</td>
-         <td><input type="password" name="password" /></td>
+         <td>Destination</td>
+         <td><input type="text" name="destination" /></td>
+         </tr>
+         <tr>
+         <td>Departure Date</td>
+         <td><input type="text" name="departuredate" /></td>
          </tr>
          
+        </tr>
         <!--  <tr>
-         <td>Confirm Password</td>
-         <td><input type="password" name="conpassword" /></td>
+         <td>Payment</td>
+         <td><input type="text" name="payment" /></td>
          </tr> -->
          
+ 
          <tr>
          <td><%=(request.getAttribute("errMessage") == null) ? ""
          : request.getAttribute("errMessage")%></td>
          </tr>
          <tr>
          <td></td>
-         <td><input type="submit" value="Register"></input><input
+         <td><input type="submit" value=" Book Here"></input><input
          type="reset" value="Reset"></input></td>
          </tr>
         </table>

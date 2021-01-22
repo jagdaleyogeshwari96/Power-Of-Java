@@ -1,6 +1,6 @@
 package com.mvc.bean;
 
-import java.io.Serializable;
+
 
 public class LoginBean  {
   
